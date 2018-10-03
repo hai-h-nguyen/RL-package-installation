@@ -1,5 +1,7 @@
 # Install Gym, Mujoco, Mujoco-py, CUDA, CUdNN in Ubuntu 16.04, Python v3.5.2
 
+My system: Alienware Aurora 7, Ubuntu 16.04, Python v3.5.2, GTX 1080 TI, CUDA 9.0, Cudnn 7.0.5, TensorflowGPU 1.5.0. Mujoco, Gym, Mujoco-py latest version
+
 1. Install CUDA
 - Prepare
 ```
