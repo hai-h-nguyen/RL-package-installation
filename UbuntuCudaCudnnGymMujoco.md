@@ -1,7 +1,7 @@
 # Install Gym, Mujoco, Mujoco-py, CUDA, CUdNN in Ubuntu 16.04, Python v3.5.2
 
-A. Install CUDA
-1. Prepare
+1. Install CUDA
+- Prepare
 ```
 sudo apt-get update
 sudo apt-get upgrade
@@ -19,23 +19,23 @@ sudo apt-get install linux-image-generic linux-image-extra-virtual
 sudo apt-get install linux-source linux-headers-generic
 ```
 
-2. Go to Software Update / Additional Drivers and change to use NVIDIA binary instead of X Server
-3. Go to CUDA website, download the appropriate version and install 
+- Go to Software Update / Additional Drivers and change to use NVIDIA binary instead of X Server
+- Go to CUDA website, download the appropriate version and install 
 ```
 sudo dpkg -i cuda-repo-ubuntu1604-9-0-local_9.0.176-1_amd64.deb
 sudo apt-key add /var/cuda-repo-<version>/7fa2af80.pub
 sudo apt-get update
 sudo apt-get install cuda
 ```
-4. After finish installing, update .bashrc file, replace cuda-8.0 by your correct version
+- After finish installing, update .bashrc file, replace cuda-8.0 by your correct version
 
-# NVIDIA CUDA Toolkit
+#NVIDIA CUDA Toolkit
 ```
 export PATH=/usr/local/cuda-8.0/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64/
 ```
 
-5. Check installation (should restart or log-out), should see Pass result
+- Check installation (should restart or log-out), should see Pass result
 ```
 source ~/.bashrc
 cd /usr/local/cuda-8.0/samples/1_Utilities/deviceQuery
@@ -45,7 +45,7 @@ deviceQuery, CUDA Driver = CUDART, CUDA Driver Version = 8.0, CUDA Runtime Versi
 Result = PASS
 ```
 
-6. Download cuDNN
+- Download cuDNN
 Go to cuDNN website and download the .tar file
 ```
 cd ~
@@ -55,7 +55,7 @@ sudo cp -P lib64/* /usr/local/cuda/lib64/
 sudo cp -P include/* /usr/local/cuda/include/
 cd ~
 ```
-B. Install Keras
+2. Install Keras
 ```
 pip3 install numpy
 pip3 install scipy matplotlib pillow
@@ -64,7 +64,7 @@ pip3 install scikit-learn scikit-image
 
 pip3 install tensorflow-gpu (Maybe need to specify correct version to your system here, mine is 1.5.0)
 ```
-Check for importing OK
+Check for importing OK in Python
 ```
 $ python3
 >>> import tensorflow
@@ -76,7 +76,7 @@ $ python3
 >>> import keras
 >>>
 ```
-C. Install Mujoco: Can ask for a trial license or use your uni email to get 1-year license
+3. Install Mujoco: Can ask for a trial license or use your uni email to get 1-year license
 ```
 #download mjpro150.zip
 wget -O mjpro150.zip https://www.roboti.us/download/mjpro150_linux.zip
@@ -90,7 +90,7 @@ cd ~/.mujoco/mjpro150/bin
 ./simulate ../model/humanoid.xml
 ```
 
-# Modify bashrc file and source (important)
+#Modify bashrc file and source (important)
 ```
 #CUDA
 export PATH=/usr/local/cuda-8.0/bin:~/.mujoco/mjpro150/bin:$PATH
@@ -101,7 +101,7 @@ export LD_LIBRARY_PATH=~/.mujoco/mjpro150/bin:/usr/lib/nvidia-384:$LD_LIBRARY_PA
 export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libGLEW.so:/usr/lib/nvidia-384/libGL.so
 ```
 
-D. Install Mujoco-py
+4. Install Mujoco-py
 ```
 #install dependencies
 sudo apt-get update -q
@@ -130,7 +130,7 @@ git clone https://github.com/openai/mujoco-py.git
 cd mujoco-py
 sudo python3 setup.py install
 ```
-#test
+#test installation
 ```
 python3
 import mujoco_py
@@ -146,14 +146,14 @@ print(sim.data.qpos)
 xxxx
 ```
 
-# Test (important)
+#test (important)
 #test for visualization
 ```
 cd mujoco-py/examples
 python3 body_interaction.py
 ```
 
-E. Install Gym
+5. Install Gym
 ```
 #download source code
 git clone https://github.com/openai/gym.git
