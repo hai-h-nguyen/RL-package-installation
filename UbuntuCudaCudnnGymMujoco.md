@@ -18,7 +18,6 @@ sudo apt-get install python2.7-dev python3-dev
 sudo apt-get install linux-image-generic linux-image-extra-virtual
 sudo apt-get install linux-source linux-headers-generic
 ```
-
 - Go to Software Update / Additional Drivers and change to use NVIDIA binary instead of X Server
 - Go to CUDA website, download the appropriate version and install 
 ```
@@ -35,7 +34,7 @@ export PATH=/usr/local/cuda-8.0/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64/
 ```
 
-- Check installation (should restart or log-out), should see Pass result
+- Check installation (restart or log-out first), you should see Pass result
 ```
 source ~/.bashrc
 cd /usr/local/cuda-8.0/samples/1_Utilities/deviceQuery
@@ -44,7 +43,6 @@ sudo make
 deviceQuery, CUDA Driver = CUDART, CUDA Driver Version = 8.0, CUDA Runtime Version = 8.0, NumDevs = 1, Device0 = Tesla K80
 Result = PASS
 ```
-
 - Download cuDNN
 Go to cuDNN website and download the .tar file
 ```
@@ -64,7 +62,7 @@ pip3 install scikit-learn scikit-image
 
 pip3 install tensorflow-gpu (Maybe need to specify correct version to your system here, mine is 1.5.0)
 ```
-Check for importing OK in Python
+- Check for importing OK in Python for tensorflow and keras
 ```
 $ python3
 >>> import tensorflow
@@ -90,7 +88,7 @@ cd ~/.mujoco/mjpro150/bin
 ./simulate ../model/humanoid.xml
 ```
 
-#Modify bashrc file and source (important)
+- Modify bashrc file and source (important)
 ```
 #CUDA
 export PATH=/usr/local/cuda-8.0/bin:~/.mujoco/mjpro150/bin:$PATH
@@ -130,7 +128,7 @@ git clone https://github.com/openai/mujoco-py.git
 cd mujoco-py
 sudo python3 setup.py install
 ```
-#test installation
+- Test installation
 ```
 python3
 import mujoco_py
@@ -146,8 +144,7 @@ print(sim.data.qpos)
 xxxx
 ```
 
-#test (important)
-#test for visualization
+- Test for visualization
 ```
 cd mujoco-py/examples
 python3 body_interaction.py
