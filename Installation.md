@@ -162,3 +162,7 @@ sudo apt-get install -y python-numpy python-dev cmake zlib1g-dev libjpeg-dev xvf
 #install gym (full-version)
 sudo pip3 install -e .
 ```
+
+References:
+https://www.pyimagesearch.com/2017/09/27/setting-up-ubuntu-16-04-cuda-gpu-for-deep-learning-with-python/
+https://zhuanlan.zhihu.com/p/34195184
