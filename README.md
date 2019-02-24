@@ -28,7 +28,7 @@ sudo apt-key add /var/cuda-repo-<version>/7fa2af80.pub
 sudo apt-get update
 sudo apt-get install cuda
 ```
-- After finish installing, update .bashrc file, replace cuda-8.0 by your correct version
+- After finish installing, update .bashrc file, replace cuda-8.0 by your correct version [combination that works: CUDA 8.0 + Tensorflow GPU 1.4.1; CUDA 9.0 + Tensorflow GPU 1.5.0]
 
 #NVIDIA CUDA Toolkit
 ```
