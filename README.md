@@ -36,7 +36,7 @@ export PATH=/usr/local/cuda-8.0/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64/
 ```
 
-- Check installation (restart or log-out first), you should see Pass result
+- Check installation (have to restart or log-out first), you should see Pass result
 ```
 source ~/.bashrc
 cd /usr/local/cuda-8.0/samples/1_Utilities/deviceQuery
@@ -61,8 +61,9 @@ pip3 install numpy
 pip3 install scipy matplotlib pillow
 pip3 install imutils h5py requests progressbar2
 pip3 install scikit-learn scikit-image
+pip3 install keras
 
-pip3 install tensorflow-gpu (Maybe need to specify correct version to your system here, mine is 1.5.0)
+pip3 install tensorflow-gpu (Maybe need to specify correct version to your system here, mine is 1.5.0 to work with CUDA 9.0; 1.4.1 for CUDA 8.0)
 ```
 - Check for importing OK in Python for tensorflow and keras
 ```
@@ -85,9 +86,7 @@ unzip mjpro150.zip -d ~/.mujoco/mjpro150
 #put the license file into ~/.mujoco & ~/.mujoco/mjpro150/bin
 cp mjkey.txt ~/.mujoco
 cp mjkey.txt ~/.mujoco/mjpro150/bin
-#test
-cd ~/.mujoco/mjpro150/bin
-./simulate ../model/humanoid.xml
+sudo apt install libglew-dev
 ```
 
 - Modify bashrc file and source (important)
@@ -101,11 +100,17 @@ export LD_LIBRARY_PATH=~/.mujoco/mjpro150/bin:/usr/lib/nvidia-384:$LD_LIBRARY_PA
 export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libGLEW.so:/usr/lib/nvidia-384/libGL.so
 ```
 
+- Validate installation
+```
+cd ~/.mujoco/mjpro150/bin
+./simulate ../model/humanoid.xml
+```
+
 4. Install Mujoco-py
 ```
 #install dependencies
-sudo apt-get update -q
-DEBIAN_FRONTEND=noninteractive sudo apt-get install -y \
+sudo apt-get update -q DEBIAN_FRONTEND=noninteractive 
+sudo apt-get install -y \
 curl \
 git \
 libgl1-mesa-dev \
@@ -144,6 +149,10 @@ xxxx
 sim.step()
 print(sim.data.qpos)
 xxxx
+```
+- Create alias in bashrc file
+```
+alias sudo='sudo env PATH=$PATH LD_LIBRARY_PATH=$LD_LIBRARY_PATH LD_PRELOAD=$LD_PRELOAD'
 ```
 
 - Test for visualization
