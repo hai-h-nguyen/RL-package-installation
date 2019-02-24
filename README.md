@@ -172,6 +172,13 @@ sudo apt-get install -y python-numpy python-dev cmake zlib1g-dev libjpeg-dev xvf
 sudo pip3 install -e .
 ```
 
+5. Caution (might loose connection to keyboard and mouse after installation and restart). To avoid:
+```
+sudo apt install -y ubuntu-dekstop
+sudo apt install xserver-xorg-input-all
+```
+
+
 References:
 - https://www.pyimagesearch.com/2017/09/27/setting-up-ubuntu-16-04-cuda-gpu-for-deep-learning-with-python/
 - https://zhuanlan.zhihu.com/p/34195184
