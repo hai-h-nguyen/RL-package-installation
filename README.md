@@ -26,7 +26,7 @@ sudo apt-get install linux-source linux-headers-generic
 sudo dpkg -i cuda-repo-ubuntu1604-9-0-local_9.0.176-1_amd64.deb
 sudo apt-key add /var/cuda-repo-<version>/7fa2af80.pub
 sudo apt-get update
-sudo apt-get install cuda
+sudo apt-get install cuda-9.0
 ```
 - After finish installing, update .bashrc file, replace cuda-8.0 by your correct version [combination that works: CUDA 8.0 + Tensorflow GPU 1.4.1; CUDA 9.0 + Tensorflow GPU 1.5.0]
 
